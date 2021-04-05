@@ -1,92 +1,28 @@
 import {
-    users,
-    questions,
+  
+  _getUsers,
+  _getQuestions
 
 } from './_DATA'
-import {formatQuestion} from './helper'
+
 
 
 export function getInitalData()  {
     return Promise.all([
-        getUsers(),
-        getQuestions(),
+        _getUsers(),
+        _getQuestions(),
+        
     ])
 
-    .then(([users,questions]) => ({
-        users,
-        questions,
+    .then(([users,questions]) => (
+     
+      {
+      users: users,
+      questions:  questions,
       }
+
     ))
 }
  
 
-export function getUsers () {
-    return new Promise((res, rej) => {
-      setTimeout(() => res({...users}), 1000)
-    })
-  }
-  
 
-  export function getQuestions () {
-    return new Promise((res, rej) => {
-      setTimeout(() => res({...questions}), 1000)
-    })
-  }
-  
-
-  export function saveQuestion (question) {
-    return new Promise((res, rej) => {
-      const authedUser = question.author;
-      const formattedQuestion = formatQuestion(question);
-  
-      setTimeout(() => {
-        questions = {
-          ...questions,
-          [formattedQuestion.id]: formattedQuestion
-        }
-        
-        users = {
-          ...users,
-          [authedUser]: {
-            ...users[authedUser],
-            questions: users[authedUser].questions.concat([formattedQuestion.id])
-          }
-        }
-  
-        res(formattedQuestion)
-      }, 1000)
-    })
-  }
-
-
-
-  export function saveQuestionAnswer ({ authedUser, qid, answer }) {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        users = {
-          ...users,
-          [authedUser]: {
-            ...users[authedUser],
-            answers: {
-              ...users[authedUser].answers,
-              [qid]: answer
-            }
-          }
-        }
-  
-        questions = {
-          ...questions,
-          [qid]: {
-            ...questions[qid],
-            [answer]: {
-              ...questions[qid][answer],
-              votes: questions[qid][answer].votes.concat([authedUser])
-            }
-          }
-        }
-  
-        res()
-      }, 500)
-    })
-  }
-  

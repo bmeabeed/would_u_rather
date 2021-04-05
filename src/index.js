@@ -6,14 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux'
 import reducer from './reducers'
 import {Provider} from 'react-redux'
-import applyMiddleware from './middleware'
-const store=createStore(reducer,applyMiddleware)
+import middleware from './middleware'
+import './App.css'
+import {BrowserRouter} from 'react-router-dom'
+const store=createStore(reducer,middleware)
 
 ReactDOM.render(
 
   
     <Provider store={store}>
-    <App />
+       <BrowserRouter>
+           <App />
+       </BrowserRouter>
+   
     </Provider>
 ,
   document.getElementById('root')
