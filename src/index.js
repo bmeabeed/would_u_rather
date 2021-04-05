@@ -1,13 +1,21 @@
-import React from 'react';
+//import React, { useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import {createStore} from 'redux'
+import reducer from './reducers'
+import {Provider} from 'react-redux'
+import applyMiddleware from './middleware'
+const store=createStore(reducer,applyMiddleware)
 
 ReactDOM.render(
-  <React.StrictMode>
+
+  
+    <Provider store={store}>
     <App />
-  </React.StrictMode>,
+    </Provider>
+,
   document.getElementById('root')
 );
 
