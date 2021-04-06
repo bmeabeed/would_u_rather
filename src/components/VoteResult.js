@@ -25,9 +25,9 @@ class VoteResult extends Component {
     const totalVotes=optionOneVotes+optionTwoVotes
     const optionOnePr=optionOneVotes/totalVotes *100
     const optionTwoPr=optionTwoVotes/totalVotes *100
-
-    const myVote= question.optionOne.votes.includes(author)
-
+    
+    const myVote= question.optionOne.votes.includes(author.id)
+    
     return (
         
       <div>
@@ -40,13 +40,14 @@ class VoteResult extends Component {
           <div >
           <h3 >Results:</h3>
          <div className="vote1">
-             <span className="absolute">Your Vote</span>
+            {myVote && (<span className="absolute">Your Vote</span>)} 
         Whould you rather than {optionOneText}?
          <ProgressBar key="{aaaa}" bgcolor="#6a1b9a" completed={optionOnePr} />
          {optionOneVotes} out of {totalVotes} votes
          </div>
           <hr/>
          <div>
+         {(!myVote) && (<span className="absolute">Your Vote</span>)} 
         Whould you rather than {optionTwoText}?
          <ProgressBar key="{asaaa}" bgcolor="#6a1b9a" completed={optionTwoPr} />
         {optionTwoVotes} out of {totalVotes} votes
