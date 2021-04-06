@@ -151,7 +151,7 @@ export function _saveQuestion (question) {
   return new Promise((res, rej) => {
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
-
+    
     setTimeout(() => {
       questions = {
         ...questions,
@@ -172,6 +172,7 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
+  
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
@@ -195,8 +196,9 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
           }
         }
       }
-
+      
       res()
+
     }, 500)
   })
 }

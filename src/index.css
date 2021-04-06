@@ -167,7 +167,7 @@ li {
   border: 1px solid #dad7d7;
   padding: 10px;
   font-size: 15px;
-  height: 100px;
+  height: 30px;
 }
 
 .tweet-length {
@@ -176,3 +176,6 @@ li {
   font-size: 20px;
   color: #C3392A;
 }
+
+
+
