@@ -1,29 +1,35 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { handleAddQuestionAnswer } from '../actions/questions'
 
 
   let answerValue=null;
 class Vote extends Component {
-   
+  
+state = { toHome: false,}
 handelSubmitt=(e)=>{
-    //const { authedUser,id } = this.
+  
     const { dispatch, id } = this.props
+    
     if(answerValue!=null)
+       {
         dispatch(handleAddQuestionAnswer(id,answerValue))
-        .then(
-         // window.location.href="/"
-        )
+        this.setState({toHome: true })
+       } 
+        
     else
          alert("Plz select value")
     
     
 }
   render() {
+   
+    const { toHome} = this.state
+    if (toHome === true) {
+      return <Redirect to='/voteResult' />
+    }
     const { question,author } = this.props
-    
-    
 
     if (question === null) {
       return <p>This question doesn't existd</p>
@@ -47,7 +53,7 @@ handelSubmitt=(e)=>{
            
             
             <button className="btn" onClick={this.handelSubmitt} >Submit</button> 
-           <Link to="/">sssssssssss</Link>
+           
           </div>
          
         </div>
