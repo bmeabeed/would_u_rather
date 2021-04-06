@@ -10,7 +10,7 @@ class Vote extends Component {
 state = { toHome: false,}
 handelSubmitt=(e)=>{
   
-    const { dispatch, id } = this.props
+  const { dispatch, id } = this.props
     
     if(answerValue!=null)
        {
@@ -27,11 +27,11 @@ handelSubmitt=(e)=>{
    
     const { toHome} = this.state
     if (toHome === true) {
-      return <Redirect to='/voteResult' />
+      return <Redirect to={'/voteResult/'+this.props.id} />
     }
     const { question,author } = this.props
 
-    if (question === null) {
+    if (question == null || question == 'undefined') {
       return <p>This question doesn't existd</p>
     }
 
@@ -72,7 +72,7 @@ function mapStateToProps ({authedUser, users, questions}, props) {
   return {
     authedUser,
     question: question,
-    author:users[question.author],
+    author:(question!=null) ? users[question.author] : null,
     id,
    
   }
