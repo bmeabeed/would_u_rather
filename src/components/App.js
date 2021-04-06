@@ -9,6 +9,7 @@ import LoadingBar from 'react-redux-loading'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
 import VoteResult from './VoteResult'
+import ScoreBoard from './ScoreBoard'
 
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
                   <Route path='/vote/:id' component={Voit} />
                   <Route path='/new' component={NewQuestion} />
                   <Route path='/voteResult/:id' component={VoteResult} />
+                  <Route path='/scoreBoard' component={ScoreBoard} />
                 </div>}
           </div>
         </Fragment>

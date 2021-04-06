@@ -50,22 +50,22 @@ class NewQuestion extends Component {
    
 
     return (
-      <div>
-        <h3 className='center'>Compose new Question</h3>
+      <div className="container">
+        <h3 >Create new Question</h3>
         <form className='new-tweet' onSubmit={this.handleSubmit}>
           
           <input type="text"
             value={optionOne}
             onChange={this.handleChange1}
             className='textarea'
-            placeholder="Enter first option"
+            placeholder="Enter option one text here"
           />
-         <p></p>
+         <p className="OR">OR</p>
           <input type="text"
             value={optionTwo}
             onChange={this.handleChange2}
             className='textarea'
-            placeholder="Enter sconde option"
+            placeholder="Enter option two text here"
           />
           
          

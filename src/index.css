@@ -12,8 +12,17 @@ body {
   width: 50px;
   height: 50px;
   border: 3px solid #73AD21;
+  align-content: center;
 }
-
+.OR {
+  
+  font-weight: 300;
+  font-weight: bold;
+  color: blue;
+ 
+  height: 20px;
+  text-align: center;
+}
 
 
 a {
