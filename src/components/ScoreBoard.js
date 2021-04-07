@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ScoreCard from './ScoreCard'
 
 
 
@@ -14,22 +15,12 @@ class ScoreBoard extends Component {
     return (
         <div>
         <ul>
-        <li key="ssssss">cccc</li>
+       
             {this.props.uids.map((id)=>
                 (
                     //(users[b].answers.length+ users[b].questions.length)
-
-                    <li key={id}>
-                        <div>
-                        {users[id].name}
-                            <p>Answerd Question: {Object.keys(users[id].answers).length}</p>
-                            <p>Created Question: {users[id].questions.length}</p>
-                            <p>Score: {(Object.keys(users[id].answers).length+ users[id].questions.length)}</p>
-
-
-                        </div>
-                        
-                        </li>
+                  <ScoreCard users={users} id={id}/>
+                   
                 )
             )}
 
