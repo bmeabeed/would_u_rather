@@ -1,6 +1,6 @@
 
 
-import {  formatQuestion } from '../utils/helper'
+
 import {  saveQuestionAnswer,saveQuestion } from '../utils/API'
 
 
@@ -31,6 +31,7 @@ export function addQuestionAnswer(authedUser,qid,answer){
         qid,
         answer,
         authedUser,
+       
     }
 }
 
@@ -38,7 +39,7 @@ export function addQuestionAnswer(authedUser,qid,answer){
 
   export function handleAddQuestion (optionOne,optionTwo) {
     return (dispatch, getState) => {
-      const { authedUser,users} = getState()
+      const { authedUser} = getState()
       
      const q={
         optionOneText: optionOne,
@@ -47,6 +48,7 @@ export function addQuestionAnswer(authedUser,qid,answer){
       }
      return saveQuestion(q)
         .then((q)=> dispatch(addQuestion(q)))
+       
         
     }
   }
@@ -54,6 +56,7 @@ export function addQuestionAnswer(authedUser,qid,answer){
   export function handleAddQuestionAnswer (qid,answer) {
     return (dispatch, getState) => {
       const { authedUser} = getState()
+    
        return saveQuestionAnswer({
         authedUser: authedUser,
         qid:qid,

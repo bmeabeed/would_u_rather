@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
+import { handleAddUserQuestions } from '../actions/users'
 
 class NewQuestion extends Component {
   state = {
@@ -32,8 +33,14 @@ class NewQuestion extends Component {
     const { optionOne,optionTwo } = this.state
     const { dispatch} = this.props
     
-    dispatch(handleAddQuestion(optionOne,optionTwo))
+    dispatch(handleAddQuestion(optionOne,optionTwo)).then((q)=>{
+      dispatch(handleAddUserQuestions(q.question.id))
 
+    }
+
+   
+    )
+   
     this.setState(() => ({
         optionOne: '',
         optionTwo: '',

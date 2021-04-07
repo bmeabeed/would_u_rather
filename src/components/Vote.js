@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { handleAddQuestionAnswer } from '../actions/questions'
+import { handleAddUserAnswer } from '../actions/users'
 
 
   let answerValue=null;
@@ -15,6 +16,7 @@ handelSubmitt=(e)=>{
     if(answerValue!=null)
        {
         dispatch(handleAddQuestionAnswer(id,answerValue))
+        dispatch(handleAddUserAnswer(id,answerValue))
         this.setState({toHome: true })
        } 
         
@@ -31,7 +33,7 @@ handelSubmitt=(e)=>{
     }
     const { question,author } = this.props
 
-    if (question == null || question == 'undefined') {
+    if (question == null || question === 'undefined') {
       return <p>This question doesn't existd</p>
     }
 

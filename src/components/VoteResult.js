@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { handleAddQuestionAnswer } from '../actions/questions'
+
 import ProgressBar from './ProgressBar';
 
 
@@ -13,7 +12,7 @@ class VoteResult extends Component {
    
     const { question,author } = this.props
    
-    if (question == null || question == 'undefined') {
+    if (question == null || question === 'undefined') {
       
       return <p>This question doesn't existd</p>
     }
