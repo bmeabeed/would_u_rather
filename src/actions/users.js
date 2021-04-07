@@ -1,6 +1,7 @@
 export const RECIVED_USERS='RECIVED_USERS'
 export const ADD_USER_ANSWER='ADD_USER_ANSWER'
 export const ADD_USER_QUESTION='ADD_USER_QUESTION'
+
 export function receiveUsers(users){
 
     return{
@@ -8,6 +9,7 @@ export function receiveUsers(users){
         users,
     }
 }
+
 export function addUserAnswer(authedUser,qid,answer){
     
     return{

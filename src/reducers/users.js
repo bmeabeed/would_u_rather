@@ -10,6 +10,7 @@ export default function users(state ={},action){
                ...state,
                ...action.users
            }
+        
         case ADD_USER_ANSWER :
             const { answer } = action
             return {

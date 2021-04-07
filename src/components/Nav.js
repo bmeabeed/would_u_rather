@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Nav () {
+export default function Nav (props) {
   return (
     <nav className='nav'>
       <ul>
@@ -12,7 +12,7 @@ export default function Nav () {
         </li>
         <li>
           <NavLink to='/new' activeClassName='active'>
-            New Tweet
+            New Question
           </NavLink>
         </li>
         <li>
@@ -20,6 +20,33 @@ export default function Nav () {
             ScoreBoard
           </NavLink>
         </li>
+{props.authedUser === null ?
+"" : 
+        <li>
+           <div className="welcome">
+            Hellow {props.authedUser.name}
+               <img className="naveLoged" src={props.authedUser.avatarURL} alt={`Avatar of ${props.authedUser.name}`} />
+               
+               </div>
+        </li>
+      }
+
+{props.authedUser === null ?
+  <li>
+          <NavLink to="/login" activeClassName='displed'>
+            Login
+          </NavLink>
+        </li>
+         : 
+        <li>
+          <NavLink to="/logout" activeClassName='displed'>
+            Log out
+          </NavLink>
+        </li>
+      
+      
+      
+      }
       </ul>
     </nav>
   )

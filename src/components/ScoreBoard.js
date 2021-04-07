@@ -8,23 +8,29 @@ import ScoreCard from './ScoreCard'
   
 class ScoreBoard extends Component {
   
-
+  reRender = () => {
+    // calling the forceUpdate() method
+    this.forceUpdate();
+  };
   render() {
    const {users} = this.props
        
     return (
         <div>
-        <ul>
+       
        
             {this.props.uids.map((id)=>
                 (
                     //(users[b].answers.length+ users[b].questions.length)
-                  <ScoreCard users={users} id={id}/>
+                  <div key={id}>
+                       <ScoreCard  users={users} id={id}/>
+                  </div>
+                 
                    
                 )
             )}
 
-        </ul>
+       
         </div>
      
     )

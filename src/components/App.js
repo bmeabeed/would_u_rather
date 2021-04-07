@@ -11,6 +11,7 @@ import Nav from './Nav'
 import VoteResult from './VoteResult'
 import ScoreBoard from './ScoreBoard'
 
+import Logout from './Lougout'
 
 class App extends Component {
   
@@ -24,7 +25,7 @@ class App extends Component {
         <Fragment>
           <LoadingBar/>
           <div className='container'>
-            <Nav />
+            <Nav authedUser={this.props.authedUser} />
             {this.props.loading === true
               ? null
               : <div>
@@ -33,6 +34,9 @@ class App extends Component {
                   <Route path='/new' component={NewQuestion} />
                   <Route path='/voteResult/:id' component={VoteResult} />
                   <Route path='/scoreBoard' component={ScoreBoard} />
+                  <Route path='/logout' component={Logout}/>
+                    
+                   
                 </div>}
           </div>
         </Fragment>
@@ -43,9 +47,10 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser,users }) {
   return {
-    loading: authedUser === null
+    loading: authedUser === null,
+    authedUser : authedUser!=null ? users[authedUser] : null
   }
 }
 
