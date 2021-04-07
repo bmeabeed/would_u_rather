@@ -8,6 +8,7 @@ import 'react-tabs/style/react-tabs.css';
 class Dashboard extends Component {
   render() {
     return (
+      
         <div className='center container'>
             <Tabs>
               <TabList>
@@ -48,16 +49,10 @@ function mapStateToProps ({authedUser,questions }) {
     const aq = Object.entries(questions);
     const  qaid= aq.filter(([key, value]) => value.optionOne.votes.includes(authedUser) ||  value.optionTwo.votes.includes(authedUser))
     const  quid= aq.filter(([key, value]) => (!value.optionOne.votes.includes(authedUser) && !value.optionTwo.votes.includes(authedUser)))
-
-    
-    
-  return {
+ return {
     authedUser,
     aid : Object.keys(Object.fromEntries(qaid)),
     uid: Object.keys(Object.fromEntries(quid)),
-    
-  
   }
 }
-
 export default connect(mapStateToProps)(Dashboard)

@@ -1,0 +1,54 @@
+.login {
+    width: 100%;
+    max-width: 350px;
+   
+   
+    margin: 0 auto;
+    border: 1px double #999292;
+    /*border-radius: 30px;*/
+   
+  }
+
+  .loginTitle {
+   
+    height: 40px;
+    background-color:#cccccc ;
+    padding: 10px;
+    text-align: center;
+   line-height: 10px;
+   
+    
+   
+  }
+  .loginTitle span{
+    
+    font-weight: bold;
+    
+  }
+  .loginTitle p{
+    
+    font-weight: lighter;
+    
+  }
+  .react{
+    display: flex;
+    height: 200px;
+     width: 100%;
+      background-image: url("imgs/reactjs.png"); /* The image used */
+  
+  
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  }
+
+  .sign {
+   
+    height: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    color :lightseagreen;
+   
+  }

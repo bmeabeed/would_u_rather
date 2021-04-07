@@ -1,8 +1,10 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
 export default function Nav (props) {
+ 
   return (
+   
     <nav className='nav'>
       <ul>
         <li>

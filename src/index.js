@@ -13,14 +13,15 @@ const store=createStore(reducer,middleware)
 
 ReactDOM.render(
 
-  
+  <BrowserRouter>
     <Provider store={store}>
-       <BrowserRouter>
+     
            <App />
-       </BrowserRouter>
+      
    
     </Provider>
-,
+    </BrowserRouter>
+, 
   document.getElementById('root')
 );
 

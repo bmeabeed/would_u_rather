@@ -46,10 +46,7 @@ class Question extends Component {
 }
 
 function mapStateToProps ({authedUser, users, questions}, { id }) {
-  
-   
   const question = questions[id]
- 
   return {
     authedUser,
     question: question,
@@ -58,5 +55,4 @@ function mapStateToProps ({authedUser, users, questions}, { id }) {
     
   }
 }
-
 export default connect(mapStateToProps)(Question)

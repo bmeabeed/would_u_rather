@@ -18,3 +18,13 @@ export function logout(){
         
     }
 }
+
+
+
+  
+  /*export function handleAddQuestionAnswer (qid,answer) {
+    return (dispatch, getState) => {
+       
+        return (()=> dispatch(addQuestionAnswer(authedUser,qid,answer)))
+      }
+  }*/

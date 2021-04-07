@@ -9,7 +9,7 @@ import { handleAddUserAnswer } from '../actions/users'
 class Vote extends Component {
   
 state = { toHome: false,}
-handelSubmitt=(e)=>{
+handleSubmit=(e)=>{
   
   const { dispatch, id } = this.props
     
@@ -54,7 +54,7 @@ handelSubmitt=(e)=>{
           <p ><input type="radio" onClick={(e)=>answerValue=e.target.value}  value="optionTwo" name="option" />{question.optionTwo.text}</p> 
            
             
-            <button className="btn" onClick={this.handelSubmitt} >Submit</button> 
+            <button className="btn" onClick={this.handleSubmit} >Submit</button> 
            
           </div>
          
