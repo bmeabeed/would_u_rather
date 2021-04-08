@@ -20,7 +20,7 @@ class ScoreBoard extends Component {
        
             {this.props.uids.map((id)=>
                 (
-                    //(users[b].answers.length+ users[b].questions.length)
+                   
                   <div key={id}>
                        <ScoreCard  users={users} id={id}/>
                   </div>
@@ -37,7 +37,7 @@ class ScoreBoard extends Component {
 }
 
 function mapStateToProps ({users,questions}) {
-    console.log(Object.keys(users))
+   
   return {
     uids:Object.keys(users)
     .sort((a,b) => 
