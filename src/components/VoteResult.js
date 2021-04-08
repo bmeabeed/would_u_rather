@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router';
 
 import ProgressBar from './ProgressBar';
 
@@ -13,9 +14,8 @@ class VoteResult extends Component {
     const { question,author } = this.props
    
     if (question == null || question === 'undefined') {
-      
-      return <p>This question doesn't existd</p>
-    }
+        return <Redirect to='/404'/>
+     }
 
     const optionOneText=question.optionOne.text
     const optionTwoText=question.optionTwo.text

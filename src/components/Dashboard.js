@@ -19,7 +19,7 @@ class Dashboard extends Component {
                   <ul className='dashboard-list'>
                   {this.props.uid.map((id) => (
                     <li key={id}>
-                      <Question id={id} link={"/vote"}/>
+                      <Question id={id} link={"/questions"}/>
                     </li>
                   ))}
                 </ul>
@@ -50,8 +50,10 @@ function mapStateToProps ({authedUser,questions }) {
     const  quid= aq.filter(([key, value]) => (!value.optionOne.votes.includes(authedUser) && !value.optionTwo.votes.includes(authedUser)))
  return {
     authedUser,
-    aid : Object.keys(Object.fromEntries(qaid)),
-    uid: Object.keys(Object.fromEntries(quid)),
+    aid : Object.keys(Object.fromEntries(qaid)).sort((a,b) => questions[b].timestamp - questions[a].timestamp),
+
+    uid: Object.keys(Object.fromEntries(quid)).sort((a,b) => questions[b].timestamp - questions[a].timestamp),
+
   }
 }
 export default connect(mapStateToProps)(Dashboard)

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { handelInitalData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import Voit from './Vote'
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import LoadingBar from 'react-redux-loading'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
@@ -25,6 +25,15 @@ function PrivateRoute ({component: Component, authed, ...rest}) {
   )
 }
 
+function PageNotFound () {
+  return (
+    <div id="main">
+    	<div className="fof">
+        		<h1> Error 404 (The Selected page not found) </h1>
+    	</div>
+</div>
+  )
+}
 class App extends Component {
   //Load InitalData from _DATA file
   componentDidMount() {
@@ -41,14 +50,17 @@ class App extends Component {
           <div className='container'>
             <Nav authedUser={this.props.authedUser} />
              <div>
-                  <Route path='/login' exact component={Login} />
-                  <Route path='/' exact component={Dashboard} onEnter={this.checkLogedInUser}/>
-                  <PrivateRoute authed={authed} path='/vote/:id' component={Voit} />
-                  <PrivateRoute authed={authed} path='/new' component={NewQuestion} />
+             <Switch>
+                  <Route  exact path='/login'  component={Login} />
+                  <Route exact  path='/'  component={Dashboard} onEnter={this.checkLogedInUser}/>
+                  <PrivateRoute exact authed={authed} path='/questions/:question_id' component={Voit} />
+                  <PrivateRoute exact authed={authed} path='/add' component={NewQuestion} />
                   <Route path='/voteResult/:id' component={VoteResult} />
-                  <Route path='/scoreBoard' component={ScoreBoard} />
-                  <Route path='/logout' component={Logout}/>
-                
+                  <Route exact path='/leaderboard' component={ScoreBoard} />
+                  <Route exact path='/logout' component={Logout}/>
+                  <Route exact path='/404' component={PageNotFound}/>
+                  <Route  component={PageNotFound} />
+              </Switch>
                </div>
           </div>
         </Fragment>

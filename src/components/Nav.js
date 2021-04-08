@@ -13,13 +13,13 @@ export default function Nav (props) {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/new' activeClassName='active'>
-            New Question
+          <NavLink to='/add' activeClassName='active'>
+            Add Question
           </NavLink>
         </li>
         <li>
-          <NavLink to='/scoreBoard' activeClassName='active'>
-            ScoreBoard
+          <NavLink to='/leaderboard' activeClassName='active'>
+          Leader Board
           </NavLink>
         </li>
 {props.authedUser === null ?

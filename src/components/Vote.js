@@ -21,7 +21,7 @@ handleSubmit=(e)=>{
        } 
         
     else
-         alert("Plz select value")
+         alert("Please select value")
     
     
 }
@@ -34,45 +34,42 @@ handleSubmit=(e)=>{
     const { question,author } = this.props
 
     if (question == null || question === 'undefined') {
-      return <p>This question doesn't existd</p>
+     
+        return <Redirect to='/404'/>
     }
 
     return (
       <div>
-       
-       <div className="container">
-      <span className='qheader'>{author.name} asks:</span>
-      <div className='tweet'>
-        <img src={author.avatarURL} alt={`Avatar of ${author.name}`} className='avatar' />
-        <div className='tweet-info'>
-          <div >
-          <p >Would You Rather?</p>
-          <p ><input type="radio" onClick={(e)=>answerValue=e.target.value}   value="optionOne" name="option" />{question.optionOne.text}</p> 
-          <p ><input type="radio" onClick={(e)=>answerValue=e.target.value}  value="optionTwo" name="option" />{question.optionTwo.text}</p> 
-           
-            
-            <button className="btn" onClick={this.handleSubmit} >Submit</button> 
-           
-          </div>
-         
-        </div>
+          <div className="container">
+              <span className='qheader'>{author.name} asks:</span>
+              <div className='tweet'>
+                <img src={author.avatarURL} alt={`Avatar of ${author.name}`} className='avatar' />
+                <div className='tweet-info'>
+                  <div >
+                    <p >Would You Rather?</p>
+                    <p ><input type="radio" onClick={(e)=>answerValue=e.target.value}   value="optionOne" name="option" />{question.optionOne.text}</p> 
+                    <p ><input type="radio" onClick={(e)=>answerValue=e.target.value}  value="optionTwo" name="option" />{question.optionTwo.text}</p> 
+                    <button className="btn" onClick={this.handleSubmit} >Submit</button> 
+                    
+                  </div>
+                  
+                </div>
+              </div>
+           </div>
       </div>
-      </div>
-
-        
-      </div>
-    )
+          )
   }
 }
 
 function mapStateToProps ({authedUser, users, questions}, props) {
-  const { id } = props.match.params
-  const question = questions[id]
+  const { question_id } = props.match.params
+  const question = questions[question_id]
+ 
   return {
     authedUser,
     question: question,
     author:(question!=null) ? users[question.author] : null,
-    id,
+    id:question_id,
    
   }
 }
