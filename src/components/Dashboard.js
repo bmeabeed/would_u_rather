@@ -8,17 +8,15 @@ import 'react-tabs/style/react-tabs.css';
 class Dashboard extends Component {
   render() {
     return (
-      
         <div className='center container'>
             <Tabs>
               <TabList>
-                <Tab>Unanswered question</Tab>
-                <Tab>Answerd question</Tab>
+                <Tab>Unanswered Questions</Tab>
+                <Tab>Answerd Questions</Tab>
               </TabList>
               <TabPanel>
                 <div>
-                <h3 className='center'>Unanswered question</h3>
-                <ul className='dashboard-list'>
+                  <ul className='dashboard-list'>
                   {this.props.uid.map((id) => (
                     <li key={id}>
                       <Question id={id} link={"/vote"}/>
@@ -29,8 +27,7 @@ class Dashboard extends Component {
           </TabPanel>
           <TabPanel>
             <div>
-                <h3 className='center'>Answerd question</h3>
-                <ul className='dashboard-list'>
+               <ul className='dashboard-list'>
                   {this.props.aid.map((id) => (
                     <li key={id}>
                       <Question id={id}  link={"/voteResult"}/>
@@ -47,7 +44,9 @@ class Dashboard extends Component {
 
 function mapStateToProps ({authedUser,questions }) {
     const aq = Object.entries(questions);
+    //Get questions id array for answered question
     const  qaid= aq.filter(([key, value]) => value.optionOne.votes.includes(authedUser) ||  value.optionTwo.votes.includes(authedUser))
+    //Get questions id array for Unanswered question
     const  quid= aq.filter(([key, value]) => (!value.optionOne.votes.includes(authedUser) && !value.optionTwo.votes.includes(authedUser)))
  return {
     authedUser,

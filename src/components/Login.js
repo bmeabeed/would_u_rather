@@ -1,19 +1,17 @@
 import { Component } from "react";
 import '../styles/login.css'
 import { connect } from 'react-redux'
-
 import Select from "react-select";
 import { setAuthedUser } from "../actions/authedUser";
 import { Redirect } from "react-router";
 
-
-
 class Login extends Component{
 state={
+   
     selectedUser: null
-    
-}
+   }
 
+//To handel the selected user from list
 handleChange =(selectedOption)=>{
    const selectedUser=selectedOption.value
     this.setState({
@@ -26,19 +24,14 @@ handleSubmits =(e)=>{
     e.preventDefault()
     const { dispatch } = this.props
     const {selectedUser} = this.state
-    
-    if(selectedUser!=null)
+      if(selectedUser!=null)
        {
-       
+        //Update AuthedUser in stae object
         dispatch(setAuthedUser(selectedUser))
-         
-       
-       
-       
        } 
         
     else
-         alert("Plz select User")
+         alert("Please select User")
  }
     render(){
 const {users,uids} =this.props
@@ -48,13 +41,11 @@ const {users,uids} =this.props
             <div >
                 <hr></hr>
                 <div className="login">
-                <div className="loginTitle">
-
-                <span>Welcome to Would You Rather App!</span>
-                <p>Please sign in to continue</p>
+                   <div className="loginTitle">
+                     <span>Welcome to Would You Rather App!</span>
+                     <p>Please sign in to continue</p>
                 </div>
                 <div className="react"></div>
-                
                 <div className="sign">Sign in</div>
                 <div>
                     <Select

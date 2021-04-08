@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Nav (props) {
  
@@ -8,8 +8,8 @@ export default function Nav (props) {
     <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/' exact activeClassName='active'>
-            Home
+          <NavLink  to='/' exact activeClassName='active'>
+             Home
           </NavLink>
         </li>
         <li>

@@ -31,7 +31,7 @@ class VoteResult extends Component {
         
       <div>
        
-       <div>
+       <div className="container">
       <span className='qheader'>Asks by {author.name} </span>
       <div className='tweet'>
         <img src={author.avatarURL} alt={`Avatar of ${author.name}`} className='avatar' />

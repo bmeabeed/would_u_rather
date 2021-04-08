@@ -10,10 +10,10 @@ import NewQuestion from './NewQuestion'
 import Nav from './Nav'
 import VoteResult from './VoteResult'
 import ScoreBoard from './ScoreBoard'
-
 import Logout from './Lougout'
 import Login from './Login'
 
+//Custom Route tag to limit access to authontecated user only
 function PrivateRoute ({component: Component, authed, ...rest}) {
   return (
     <Route
@@ -26,20 +26,15 @@ function PrivateRoute ({component: Component, authed, ...rest}) {
 }
 
 class App extends Component {
-   
-
-
-  
-  
-  
-  
+  //Load InitalData from _DATA file
   componentDidMount() {
     this.props.dispatch(handelInitalData())
   }
   render() {
+    //Check user loged in or not
     const authed= this.props.authedUser!==null ? true: false
+  
     return (
-     
       <Router>
         <Fragment>
           <LoadingBar/>
@@ -53,9 +48,8 @@ class App extends Component {
                   <Route path='/voteResult/:id' component={VoteResult} />
                   <Route path='/scoreBoard' component={ScoreBoard} />
                   <Route path='/logout' component={Logout}/>
-                    
-                   
-                </div>
+                
+               </div>
           </div>
         </Fragment>
       </Router>

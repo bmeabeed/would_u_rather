@@ -37,13 +37,10 @@ handleSubmit=(e)=>{
       return <p>This question doesn't existd</p>
     }
 
-
-
-   
     return (
       <div>
        
-       <div>
+       <div className="container">
       <span className='qheader'>{author.name} asks:</span>
       <div className='tweet'>
         <img src={author.avatarURL} alt={`Avatar of ${author.name}`} className='avatar' />
@@ -80,8 +77,4 @@ function mapStateToProps ({authedUser, users, questions}, props) {
   }
 }
 
-
-
-  
-  
 export default connect(mapStateToProps)(Vote)

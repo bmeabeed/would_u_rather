@@ -32,7 +32,7 @@ class Question extends Component {
           <p >Would You Rather?</p>
             <p>{optionOne.text}</p>
             <Link to={`${this.props.link+"/"+this.props.id}`} >
-            <button className="btn">Aview poll</button> 
+            <button className="btn">View Vote</button> 
             </Link>
           </div>
          

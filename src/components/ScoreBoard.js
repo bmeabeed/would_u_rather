@@ -8,10 +8,9 @@ import ScoreCard from './ScoreCard'
   
 class ScoreBoard extends Component {
   
-  reRender = () => {
-    // calling the forceUpdate() method
-    this.forceUpdate();
-  };
+  componentDidUpdate() {
+    this.forceUpdate()
+  }
   render() {
    const {users} = this.props
        
