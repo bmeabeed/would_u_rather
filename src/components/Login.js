@@ -67,7 +67,7 @@ const {users,uids} =this.props
 }
 
 function mapStateToProps ({users,authedUser}) {
-    console.log(users)
+ 
 return {
      loading: authedUser === null,
      uids : Object.keys(users),
